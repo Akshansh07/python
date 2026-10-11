@@ -4,10 +4,19 @@ import tensorflow as tf
 from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 import pandas as pd
 import pickle
+from pathlib import Path
 
 
-## Loading the trained model 
-model =  tf.keras.models.load_model('model.h5')
+# ## Loading the trained model 
+# model =  tf.keras.models.load_model('model.h5')
+
+
+# Get the directory containing app.py
+BASE_DIR = Path(__file__).resolve().parent
+
+# Load the trained model
+model_path = BASE_DIR / "model.h5"
+model = tf.keras.models.load_model(model_path)
 
 ## Load the encoder and scaler 
 
